@@ -1,6 +1,6 @@
 const React = require("react");
 const DefaultLayout = require("./layouts/default");
-​
+
 class Edit extends React.Component {
   render() {
     return (
@@ -20,7 +20,7 @@ class Edit extends React.Component {
           <input type="textarea" name="entry" defaultValue={this.props.log.entry} />
           <br />
           Is ship broken:
-          {this.props.student.shipIsBroken ? (
+          {this.props.log.shipIsBroken ? (
             <input type="checkbox" name="shipIsBroken" defaultChecked />
           ) : (
             <input type="checkbox" name="shipIsBroken" />

@@ -89,7 +89,7 @@ app.put("/logs/:id", (req, res) => {
 // Delete
 app.delete("/logs/:id", (req, res) => {
     Log.findByIdAndRemove(req.params.id, (err, data) => {
-        res.redirect("logs");
+        res.redirect("/logs");
     });
 });
 
