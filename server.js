@@ -7,9 +7,7 @@ const mongoose = require("mongoose");   // Require mongoose
 const Log = require("./models/logs");   // Set up model for log
 
 const methodOverride = require("method-override"); // Require method override needed for certain routes
-
-
-
+// Models go here const model = require('./models/model);
 
 // Routes
 // Index
@@ -74,6 +72,16 @@ app.delete("/logs/:id", (req, res) => {
         res.redirect("logs");
     });
 });
+
+// Show
+app.get("/logs/:id", (req, res) => {
+    Log.findById(req.params.id, (err, foundLog) => {
+        console.log(err);
+        console.log("Found:", foundLog);
+        res.render("Show", {log: foundLog});
+    });
+});
+
 // Routes \
 
 // Listen
