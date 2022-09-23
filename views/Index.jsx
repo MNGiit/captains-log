@@ -7,7 +7,7 @@ class Index extends React.Component {
     console.log(logs);
     return (
       
-      <DefaultLayout title={"StudentDashboard"}>
+      <DefaultLayout title={"Logs"}>
         <nav>
         <a href={'/logs/new'}>Create a new log</a>
       </nav>
