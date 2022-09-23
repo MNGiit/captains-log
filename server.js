@@ -7,7 +7,26 @@ const mongoose = require("mongoose");   // Require mongoose
 const Log = require("./models/logs");   // Set up model for log
 
 const methodOverride = require("method-override"); // Require method override needed for certain routes
-// Models go here const model = require('./models/model);
+
+// Middleware
+app.set('view engine', 'jsx');                                      // Set up view engine
+app.engine('jsx', require('express-react-views').createEngine());   // Links JSX/ReactViews to App
+
+app.use(express.urlencoded({extended: false}));     // Parse req.body
+app.use(methodOverride('_method'));                 // Instantiates MethodOverride for CRUD actions
+app.use((req, res, next) => {                       // Establishes Middleware Process
+    console.log("This is here for the routes");
+    next();
+})
+
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+mongoose.connection.once("open", () => {
+    console.log("Connected to Mongo");
+})
+// Middleware \
 
 // Routes
 // Index
@@ -86,7 +105,3 @@ app.get("/logs/:id", (req, res) => {
 
 // Listen
 app.listen("3000", () => {console.log("Server is running on port 3000");}); // Listen
-
-
-
-
