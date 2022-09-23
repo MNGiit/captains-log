@@ -6,30 +6,26 @@ class Index extends React.Component {
     const { logs } = this.props;
     console.log(logs);
     return (
-      
       <DefaultLayout title={"Logs"}>
         <nav>
-        <a href={'/logs/new'}>Create a new log</a>
-      </nav>
+            <a href={'/logs/new'}>Create a new log</a>
+        </nav>
         <ul>
-          {logs.map((log, i) => {
-            return (
-              <li key={i}>
-                {/* each log */}
-                <a href={`/logs/${log.id}`}> {log.title}<br />
-
-                {/* ===========EDIT */}
-                <a href={`logs/${log._id}/edit`}> Edit Log</a>
-                {/* ======Delete */}
-                <form action={`/logs/${log._id}?_method=DELETE`} method="POST">
-                  <input type="submit" value="DELETE" />
-                </form>
-              </li>
-            );
-          })}
+            {logs.map((log, i) => {
+                return (
+                    <li key={i}>
+                        <a href={`/logs/${log.id}`}>{log.title}</a>
+                        <a href={`/logs/${log.id}/edit`}>Edit Log</a>
+                        <form action={`/logs/${log.id}?_method=DELETE`} method="POST">
+                            <input type="submit" value="DELETE" />
+                        </form>
+                    </li>
+                )
+            })}
         </ul>
       </DefaultLayout>
     );
   }
 }
-module.exports = Index
+
+module.exports = Index;
