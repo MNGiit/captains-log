@@ -39,8 +39,8 @@ app.get("/logs", (req, res) => {
 
 // New
 app.get("/logs/new", (req, res) => {
-    // res.render("New", {});
-    res.render("New");
+    res.render("New", {});
+    // res.render("New");
 });
 
 // Create/Post

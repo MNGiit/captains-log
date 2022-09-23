@@ -8,7 +8,7 @@ class Show extends React.Component {
       <DefaultLayout title={"Captain's log"}>
         <div>
             <nav>
-                <a href="/logss"> Go back</a>
+                <a href="/logs"> Go back</a>
             </nav>
             {log.title} <br />
             {log.entry} <br />
