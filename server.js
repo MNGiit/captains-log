@@ -40,6 +40,20 @@ app.post("/logs", (req, res) => {
     res.redirect("/logs");
 })
 
+// Edit
+app.get("/logs/:id/edit", (req, res) => {
+    Log.findById(req.params.id, (err, foundLog) => {
+        console.log(err);
+        if(!err) {
+            res.render("Edit", {log: foundLog});
+        } else {
+            res.send({msg: err.message});
+        }
+    });
+});
+
+
+
 
 app.listen("3000", () => {console.log("Server is running on port 3000");}); // Listen
 
