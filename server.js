@@ -20,7 +20,10 @@ app.get("/logs", (req, res) => {
     });
 });
 
-
+// New
+app.get("logs/new", (req, res) => {
+    res.render("New", {});
+});
 
 app.listen("3000", () => {console.log("Server is running on port 3000");}); // Listen
 
