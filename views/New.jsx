@@ -6,8 +6,8 @@ class New extends React.Component {
     return (
       <DefaultLayout title="New Log">
         <form action="/logs" method="POST">
-            Title: <input type="text" name="title" /><br/>
-            Entry: <input type="textarea" name="entry" /><br/>
+            Title: <input type="text" name="title" required /><br/>
+            Entry: <input type="textarea" name="entry" required /><br/>
             Is ship broken: <input type="checkbox" name="shipIsBroken" defaultChecked />
             <input type="submit" name="" value="Create Log"/>
         </form>
