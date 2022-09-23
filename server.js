@@ -1,6 +1,8 @@
 const express = require("express");     // Require express
 const app = express();                  // Initialize
 
+app.use(express.static('public'));      //tells express to try to match requests with files in the directory called 'public'
+
 require("dotenv").config();             // Link .env variables to app
 const mongoose = require("mongoose");   // Require mongoose
 
