@@ -68,7 +68,15 @@ app.put("/logs/:id", (req, res) => {
 });
 
 
+// Delete
+app.delete("/logs/:id", (req, res) => {
+    Log.findByIdAndRemove(req.params.id, (err, data) => {
+        res.redirect("logs");
+    });
+});
+// Routes \
 
+// Listen
 app.listen("3000", () => {console.log("Server is running on port 3000");}); // Listen
 
 
